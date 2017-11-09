@@ -6,5 +6,8 @@
 // But instead we're going to implement it from scratch:
 var getElementsByClassName = function(className) {
   // your code here
-  if (className )
+  var output = [];
+ // if (className exists in html file, could we test with index of?)
+
+  return output;
 };
