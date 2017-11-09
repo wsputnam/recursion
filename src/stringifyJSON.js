@@ -29,19 +29,20 @@ var stringifyJSON = function(obj) {
     var output = [];
     for (var key in obj) {
       var value = obj[key]; 
+      var keyToString = '"' + key + '":';
       if (typeof value === undefined) {
         output.push('');
       }
-      if (value === null || typeof value === 'boolean' || typeof value === 'number') {
-      	output.push('' + value);
+      else if (value === null || typeof value === 'boolean' || typeof value === 'number') {
+      	output.push(keyToString + value);
       }
-      if (typeof value === 'string') {
-      	output.push('"' + value + '"');
+      else if (typeof value === 'string') {
+      	output.push(keyToString+ '"' + value + '"');
       }
       else if (typeof value === 'object') {
-      	output.push(stringifyJSON(value));
+      	output.push(keyToString + stringifyJSON(value));
       }
     }
-    return '{"' + key + '":' + output.join(',') + '}';
+    return '{' + output.join(',') + '}';
   }
 };
