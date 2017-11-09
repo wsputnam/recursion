@@ -20,7 +20,7 @@ var stringifyJSON = function(obj) {
   else if (typeof obj === 'string') {
   	return '"' + obj + '"';
   }
-  else if (typeof obj === 'object' && Array.isArray(obj)) {
+  else if (typeof obj === 'object' && Array.isArray(obj) === true) {
   	return '[' + obj.map(function(elem) {
       return stringifyJSON(elem);
   	}).join(',')+ ']';
