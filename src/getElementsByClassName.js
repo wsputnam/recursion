@@ -15,7 +15,7 @@ var getElementsByClassName = function(className) {
   function checkElement(element) {
     
     // need to state how to check for class name before doing child node recursion method
-    if (element.className !== undefined && element.className.includes(className) === true) {
+    if (element.className !== undefined && element.classList.contains(className)) {
     	output.push(element);
     }
 
