@@ -15,21 +15,27 @@ var parseJSON = function(json) {
   if (json === 'false') {
   	return false;
   }
-  var arr = json.split(' ');
+  var arr = json.split('');
   if (arr[0] === '{') {
   	var output = {};
+  	for (var i = 1; i < arr.length - 1; i+=2) {
+  		output[arr[i]] = arr[i+1];
+  	}
 
   }
   if (arr[0] === '[') {
   	var output = [];
+  	for (var i = 1; i < arr.length - 1; i++) {
+  		output.push(arr[i]);
+  	}
 
   }
 
 
    // if we do every character, it will be hard to notice booleans and numbers
-  arr.forEach(function(char) {
+  //arr.forEach(function(char) {
     // if the character is a certain type of character, convert that character to something else
 
 
-  });
+  //});
 };
